@@ -36,16 +36,16 @@ st.markdown(
 col_img1, col_img2 = st.columns(2)
 with col_img1:
     st.image(
-        "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=1200",
-        caption="Structural monitoring",
-        use_container_width=True,
-    )
+    "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=1200",
+    caption="Structural monitoring",
+    use_column_width=True,
+)
 with col_img2:
     st.image(
-        "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=1200",
-        caption="Wind and vibration context",
-        use_container_width=True,
-    )
+    "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=1200",
+    caption="Wind and vibration context",
+    use_column_width=True,
+)
 
 
 def load_pickle(path: str):
