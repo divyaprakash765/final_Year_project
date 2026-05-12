@@ -38,7 +38,7 @@ with col_img1:
     st.image(
     "https://instagram.fpat2-2.fna.fbcdn.net/v/t51.82787-15/688804826_18040728473620005_3900418918871755982_n.webp?_nc_cat=109&ig_cache_key=Mzg5Mzg2NjA0Mjk2NzAwNTM0OA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTA4MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=D94KWxDedzoQ7kNvwF5WhBM&_nc_oc=AdrmvWlFE7Z0M_llltUu6g01aqNYzvfseWYGBWfZF55yPfUF6YQ2rZxr8yvYxXqEq684Br4zP9QMa13EYuN_wv-C&_nc_ad=z-m&_nc_cid=1174&_nc_zt=23&_nc_ht=instagram.fpat2-2.fna&_nc_gid=_-PMV3WiiuJCdC5LFoJnpA&_nc_ss=7a22e&oh=00_Af4C4S0pWgXzCXanU7_7CHs0_CYD4-S-Oh4rfvGLaoIOmQ&oe=6A062F55",
     caption="Structural monitoring",
-    width=800,
+    width=700,
 )
 with col_img2:
     st.image(
