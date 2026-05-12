@@ -36,13 +36,13 @@ st.markdown(
 col_img1, col_img2 = st.columns(2)
 with col_img1:
     st.image(
-    "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=1200",
+    "https://instagram.fpat2-2.fna.fbcdn.net/v/t51.82787-15/688804826_18040728473620005_3900418918871755982_n.webp?_nc_cat=109&ig_cache_key=Mzg5Mzg2NjA0Mjk2NzAwNTM0OA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQueHBpZHMuMTA4MC5zZHIucmVndWxhcl9waG90by5DMyJ9&_nc_ohc=D94KWxDedzoQ7kNvwF5WhBM&_nc_oc=AdrmvWlFE7Z0M_llltUu6g01aqNYzvfseWYGBWfZF55yPfUF6YQ2rZxr8yvYxXqEq684Br4zP9QMa13EYuN_wv-C&_nc_ad=z-m&_nc_cid=1174&_nc_zt=23&_nc_ht=instagram.fpat2-2.fna&_nc_gid=_-PMV3WiiuJCdC5LFoJnpA&_nc_ss=7a22e&oh=00_Af4C4S0pWgXzCXanU7_7CHs0_CYD4-S-Oh4rfvGLaoIOmQ&oe=6A062F55",
     caption="Structural monitoring",
-    use_column_width=True,
+    width=800,
 )
 with col_img2:
     st.image(
-    "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=1200",
+    "https://static.independent.co.uk/2023/08/22/21/Offshore_Wind_Rhode_Island_43759.jpg?quality=75&width=1200&auto=webp",
     caption="Wind and vibration context",
     use_column_width=True,
 )
@@ -122,10 +122,11 @@ def load_assets():
         "XGBoost": "xgb.pkl",
         "Random Forest": "rf.pkl",
     }
-
+# C:\Documents\final_Year_project\rf.pkl
     models = {}
     missing = []
     for name, path in model_files.items():
+        print(f"Checking for model file: {path}");
         if Path(path).exists():
             try:
                 models[name] = load_pickle(path)
@@ -145,7 +146,7 @@ st.sidebar.header("Prediction Inputs")
 amplitude = st.sidebar.selectbox("Wind amplitude", [0.5, 1.0, 2.0], index=0)
 windows = st.sidebar.slider("Number of feature windows", 5, 60, 30)
 
-uploaded_file = st.file_uploader("Upload vibration Excel file", type=["xlsx", "xls"])
+uploaded_file = st.file_uploader("Upload vibration Excel file", type=["xlsx", "xls", "csv"])
 
 if assets["missing_models"]:
     st.warning(
@@ -161,7 +162,10 @@ if uploaded_file is None:
     st.info("Upload an Excel file to start prediction.")
     st.stop()
 
-df_raw = pd.read_excel(uploaded_file)
+if uploaded_file.name.endswith(".csv"):
+    df_raw = pd.read_csv(uploaded_file)
+else:
+    df_raw = pd.read_excel(uploaded_file)
 st.subheader("Uploaded Data Preview")
 st.dataframe(df_raw.head(), use_container_width=True)
 
